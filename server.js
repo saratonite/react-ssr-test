@@ -22,7 +22,7 @@ app.get('/',function(req,res){
 
   var htmlHead = '<html><body><div id="app">';
 
-  var htmlTail = '<script src="static/bundle.js"></script></div></body></html>'
+  var htmlTail = '<script src="static/bundle.js"></script></div></div></body></html>'
 
   var html = ReactDOMServer.renderToString(
     React.createElement(Hello.default)
