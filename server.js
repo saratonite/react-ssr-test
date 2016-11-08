@@ -1,5 +1,7 @@
 var express = require('express');
 
+var webpack = require('webpack');
+
 /*Babel Register */
 require('babel-register')({
   presets:['react','es2015']
@@ -12,9 +14,15 @@ var Hello = require('./client/Hello');
 
 var app = express();
 
+app.use('/static',express.static('./static'));
+
 app.get('/',function(req,res){
 
   console.log(Hello);
+
+  var htmlHead = '<html><body><div id="app">';
+
+  var htmlTail = '<script src="static/bundle.js"></script></div></body></html>'
 
   var html = ReactDOMServer.renderToString(
     React.createElement(Hello.default)
@@ -22,7 +30,7 @@ app.get('/',function(req,res){
 
    //html ="Hpoo";
 
-  res.send(html);
+  res.send(htmlHead+html+htmlTail);
 
 });
 
