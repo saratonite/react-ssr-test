@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import Hello from './Hello';
+import App from './App';
 
 var rootEl = document.getElementById('app');
 
-render(<Hello/>,rootEl);
+render(<App/>,rootEl);
