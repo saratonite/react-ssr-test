@@ -1,3 +1,4 @@
+var path = require("path")
 var express = require('express');
 
 var webpack = require('webpack');
@@ -14,7 +15,7 @@ var App = require('./client/App');
 
 var app = express();
 
-app.use('/static',express.static('./static'));
+app.use('/static',express.static(path.join(__dirname,'static')));
 
 app.get('/',function(req,res){
 
