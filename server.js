@@ -17,7 +17,7 @@ var app = express();
 
 app.use('/static',express.static(path.join(__dirname,'static')));
 
-app.use('/',universalApp);
+app.use('*',universalApp);
 
 
 

@@ -1,4 +1,4 @@
 # TODOS
 
-+ [] Add routes
-+ [] Add props
+- [ X ] Add routes
+- [ ] Add props
