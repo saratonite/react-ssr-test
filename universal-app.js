@@ -12,7 +12,6 @@ import App  from './client/App' ;
 
 route.get('*',function(req,res){
 
-  console.log(req);
   let html = '';
 
   let context = {};
