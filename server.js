@@ -3,7 +3,7 @@ var express = require('express');
 
 var webpack = require('webpack');
 
-var port = process.env.PORT || 3333;
+var port = process.env.PORT || 8080;
 
 /*Babel Register */
 require('babel-register')({
@@ -22,5 +22,5 @@ app.use('*',universalApp);
 
 
 app.listen(port,function(){
-  console.log("App listening on port 3333");
+  console.log("App listening on port "+port);
 });
