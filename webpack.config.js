@@ -4,14 +4,14 @@ var path = require('path');
 module.exports = {
 	entry:'./client/main',
 	output:{
-		path:'static',
+		path:path.join(__dirname,'static'),
 		filename:'bundle.js'
 	},
 	module:{
 		loaders:[
 			  {
         test: /\.js$/,
-        loaders: ['babel?presets[]=es2015&presets[]=react'],
+        loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
         include: path.join(__dirname,'client')
       }
 		]

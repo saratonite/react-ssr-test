@@ -11,7 +11,7 @@ export default class Apps extends React.Component{
 
   }
   render(){
-    return(<div><h1>Hello React Servers</h1>
+    return(<div><h1>Spa server rendering</h1>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Route exact path="/" component={Home}></Route>
