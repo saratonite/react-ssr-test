@@ -8,11 +8,11 @@ import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 
 import App  from './client/App' ;
-
+import axios from 'axios';
 
 var renderStatic = true;
 
-route.get('*',function(req,res){
+route.get('/',function(req,res){
 
   let html = '';
 
@@ -24,14 +24,28 @@ route.get('*',function(req,res){
 
   var renderMethod = renderStatic ? renderToStaticMarkup :  renderToString;
 
-   html = renderMethod(
-     <Router location={req.baseUrl} context={context}>
-        <App></App>
-     </Router>
-   );
+  axios.get('https://api.github.com/users/saratonite')
+        .then(function(response){
+
+          console.log('Data fetch from server--',req.url);
+
+          let context = {data:response.data};
+
+           html = renderMethod(
+              <Router location={req.baseUrl} context={context}>
+                  <App></App>
+              </Router>
+            );
+
+            var initialdataScript = `<script>window.data = ${JSON.stringify(response.data)}</script>`
 
 
-  res.send(htmlHead+html+htmlTail);
+            res.send(htmlHead+html+initialdataScript+htmlTail);
+
+        })
+
+
+  
 
 
 
