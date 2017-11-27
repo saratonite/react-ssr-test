@@ -69,6 +69,7 @@ initialData() {
           { this.state.profile && 
             <div>
               { this.state.profile.name }
+              <p>{ this.state.profile.bio }</p>
             </div>
           }
         </div>
